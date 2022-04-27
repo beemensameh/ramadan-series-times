@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Ramadan</title>
+</head>
+
+<body>
+    <div class="container flex justify-center mx-auto">
+        <div class="flex flex-col">
+            <div class="w-full">
+                <div class="border-b border-gray-200 shadow">
+                    <table>
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-2 text-xs text-gray-500">
+                                    Series Name
+                                </th>
+                                <th class="px-6 py-2 text-xs text-gray-500">
+                                    Channel Name
+                                </th>
+                                <th class="px-6 py-2 text-xs text-gray-500">
+                                    Order
+                                </th>
+                                <th class="px-6 py-2 text-xs text-gray-500">
+                                    Time
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white">
+                            {% if series_now %}
+                                {% for serie_now in series_now %}
+                                    <tr class="whitespace-nowrap">
+                                        <td class="px-6 py-4 text-sm text-gray-900">
+                                            {{ serie_now.serie }}
+                                        </td>
+                                        <td class="px-6 py-4 text-sm text-gray-900">
+                                            {{ serie_now.channel }}
+                                        </td>
+                                        <td class="px-6 py-4 text-sm text-gray-500">
+                                            {{ serie_now.channel.order }}
+                                        </td>
+                                        <td class="px-6 py-4 text-sm text-gray-500">
+                                            {{ serie_now.time }}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
